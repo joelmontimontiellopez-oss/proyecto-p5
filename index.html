@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fiesta Montiel | Venta de sillas, mesas y juegos inflables</title>
+  <meta name="description" content="Venta y renta de sillas, mesas y juegos inflables para tus eventos. Cotiza al instante por WhatsApp.">
+  <meta name="theme-color" content="#e60012">
+
+  <!-- Open Graph: cómo se ve el enlace al compartirlo en WhatsApp / redes -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Fiesta Montiel | Sillas, mesas e inflables">
+  <meta property="og:description" content="Todo para tu fiesta. Cotiza por WhatsApp.">
+  <!-- OJO: WhatsApp exige una URL ABSOLUTA. Cuando publiques el sitio, cambia esta línea por
+       https://TU-DOMINIO/assets/img/og-image.png (y agrega og:url con la dirección del sitio). -->
+  <meta property="og:image" content="assets/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+
+  <!-- Fuentes: preconnect abre la conexión antes; display=swap muestra texto aunque la fuente no haya llegado -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Archivo+Black&display=swap">
+
+  <!-- CSS en orden: variables → base → componentes -->
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+
+  <!-- Marca que JS está disponible ANTES de pintar, para evitar parpadeos en las animaciones -->
+  <script>
+    document.documentElement.classList.add('js');
+    /* Red de seguridad: si el JavaScript no arranca en 3 s (por ejemplo al abrir con doble clic,
+       donde el navegador bloquea los módulos), se muestra todo sin esperar al scroll. */
+    setTimeout(function () { if (!window.__fiestaListo) document.documentElement.classList.remove('js'); }, 3000);
+  </script>
+
+  <!-- defer / type="module": no bloquean el render y se ejecutan en este orden -->
+  <script src="assets/vendor/qrcode.min.js" defer></script>
+  <script type="module" src="assets/js/main.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="logo" href="#inicio" aria-label="Fiesta Montiel, ir al inicio">
+        <img class="logo__img" src="assets/img/favicon.svg" alt="" width="40" height="40">
+        <span>Fiesta <strong>Montiel</strong></span>
+      </a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+        <span class="visually-hidden">Abrir menú</span>
+      </button>
+
+      <nav id="menu-principal" class="nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a class="nav__link" href="#productos">Precios</a></li>
+          <li><a class="nav__link" href="#como">Cómo pedir</a></li>
+          <li><a class="nav__link" href="#contacto">Contacto</a></li>
+          <li><a class="nav__link" href="#ventas">Ventas</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido">
+    <!-- ===== ANUNCIO PRINCIPAL ===== -->
+    <section id="inicio" class="hero">
+      <div class="hero__decor" aria-hidden="true">
+        <span class="balloon balloon--1"></span>
+        <span class="balloon balloon--2"></span>
+        <span class="balloon balloon--3"></span>
+        <span class="bit bit--1"></span><span class="bit bit--2"></span><span class="bit bit--3"></span>
+        <span class="bit bit--4"></span><span class="bit bit--5"></span><span class="bit bit--6"></span>
+      </div>
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Sillas, mesas y brincolines</p>
+          <h1 class="hero__title">Tu fiesta, <span class="highlight">lista.</span></h1>
+          <p class="hero__text">Para tu cumpleaños o tu fiesta. Escríbenos por WhatsApp y te decimos cuánto cuesta.</p>
+          <div class="hero__actions">
+            <a class="btn btn--whatsapp btn--big" href="#contacto" data-whatsapp-link>Pregunta el precio</a>
+            <a class="btn btn--ghost btn--big" href="#productos">Ver precios</a>
+          </div>
+        </div>
+        <div class="hero__visual">
+          <p class="sticker" aria-label="Sillas desde 250 pesos">
+            <span class="sticker__small">Sillas desde</span>
+            <span class="sticker__price">$250</span>
+          </p>
+          <div class="hero__art" aria-hidden="true">
+            <img class="hero__art-castle" src="assets/img/castle.svg" alt="" width="240" height="180">
+            <img src="assets/img/chair.svg" alt="" width="240" height="180">
+            <img src="assets/img/table.svg" alt="" width="240" height="180">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Cinta decorativa (el texto se repite para que el ciclo no tenga salto) -->
+    <div class="ribbon" aria-hidden="true">
+      <div class="ribbon__track">
+        <span>Sillas</span><span>★</span><span>Mesas</span><span>★</span><span>Brincolines</span><span>★</span><span>Tu fiesta</span><span>★</span>
+        <span>Sillas</span><span>★</span><span>Mesas</span><span>★</span><span>Brincolines</span><span>★</span><span>Tu fiesta</span><span>★</span>
+      </div>
+    </div>
+
+    <!-- ===== PRODUCTOS CON PRECIO ===== -->
+    <section id="productos" class="section" aria-labelledby="productos-titulo">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="productos-titulo">Lo que tenemos</h2>
+          <p class="section__lead">Mira cuánto cuesta cada cosa. <small>(Precios de ejemplo)</small></p>
+        </header>
+        <ul class="cards" role="list">
+          <li class="reveal">
+            <article class="card card--sillas">
+              <div class="card__art" aria-hidden="true"><img src="assets/img/chair.svg" alt="" width="240" height="180" loading="lazy"></div>
+              <h3 class="card__title">Sillas</h3>
+              <p class="card__price"><span>desde</span> $250</p>
+              <p>Para sentarse. Hay para grandes y para niños.</p>
+              <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por sillas</a>
+            </article>
+          </li>
+          <li class="reveal" style="--delay: 80ms">
+            <article class="card card--mesas">
+              <div class="card__art" aria-hidden="true"><img src="assets/img/table.svg" alt="" width="240" height="180" loading="lazy"></div>
+              <h3 class="card__title">Mesas</h3>
+              <p class="card__price"><span>desde</span> $850</p>
+              <p>Para comer y jugar. Hay redondas y largas.</p>
+              <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por mesas</a>
+            </article>
+          </li>
+          <li class="reveal" style="--delay: 160ms">
+            <article class="card card--inflables">
+              <div class="card__art" aria-hidden="true"><img src="assets/img/castle.svg" alt="" width="240" height="180" loading="lazy"></div>
+              <h3 class="card__title">Brincolines</h3>
+              <p class="card__price"><span>desde</span> $9,800</p>
+              <p>Para saltar. Hay castillos y toboganes.</p>
+              <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por brincolines</a>
+            </article>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===== CÓMO PEDIR (pasos reales, en orden) ===== -->
+    <section id="como" class="section" aria-labelledby="como-titulo">
+      <div class="container">
+        <header class="section__header">
+          <h2 id="como-titulo">Así de fácil</h2>
+        </header>
+        <ol class="steps">
+          <li class="step reveal"><span class="step__n" aria-hidden="true">1</span><strong>Escríbenos</strong><span>Toca el botón blanco o usa la cámara del celular.</span></li>
+          <li class="step reveal" style="--delay: 80ms"><span class="step__n" aria-hidden="true">2</span><strong>Cuéntanos de tu fiesta</strong><span>Qué día es y qué cosas necesitas.</span></li>
+          <li class="step reveal" style="--delay: 160ms"><span class="step__n" aria-hidden="true">3</span><strong>Te decimos el precio</strong><span>Así sabes cuánto cuesta.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== CONTACTO / QR ===== -->
+    <section id="contacto" class="section" aria-labelledby="contacto-titulo">
+      <div class="container contact">
+        <div class="contact__text">
+          <h2 id="contacto-titulo">Pregunta por WhatsApp</h2>
+          <p class="contact__big">Apunta la cámara de tu celular al dibujo cuadrado.</p>
+          <p>Si ya estás en tu celular, toca el botón.</p>
+          <a class="btn btn--yellow btn--big" href="#contacto" data-whatsapp-link>Abrir WhatsApp</a>
+        </div>
+        <figure class="qr">
+          <div class="qr__code" data-whatsapp-qr role="img" aria-label="Código QR para abrir un chat de WhatsApp con Fiesta Montiel"></div>
+          <figcaption class="qr__caption">Código QR de WhatsApp</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== TABLA DE VENTAS (primera tabla) ===== -->
+    <section id="ventas" class="section" aria-labelledby="ventas-titulo" data-sales>
+      <div class="container">
+        <header class="section__header">
+          <h2 id="ventas-titulo">Lo que más se vende</h2>
+          <p class="section__lead">Mira qué cosas se llevan más. <small>(Datos de ejemplo)</small></p>
+        </header>
+
+        <!-- Indicadores calculados a partir de la misma tabla -->
+        <dl class="stats">
+          <div class="stat">
+            <dt>Cuántas cosas</dt>
+            <dd data-stat="unidades">—</dd>
+          </div>
+          <div class="stat">
+            <dt>La más vendida</dt>
+            <dd data-stat="top">—</dd>
+          </div>
+        </dl>
+
+        <div class="table-toolbar">
+          <label for="filtro-categoria">Ver</label>
+          <select id="filtro-categoria" class="select" data-filter>
+            <option value="todas">Todo</option>
+            <option value="sillas">Sillas</option>
+            <option value="mesas">Mesas</option>
+            <option value="inflables">Brincolines</option>
+          </select>
+        </div>
+
+        <!-- role=region + tabindex permite desplazar la tabla con teclado en pantallas chicas -->
+        <div class="table-wrap" role="region" aria-labelledby="tabla-ventas-caption" tabindex="0">
+          <table class="table">
+            <caption id="tabla-ventas-caption">Toca un título para ordenar la tabla.</caption>
+            <thead>
+              <tr>
+                <th scope="col" data-col="producto"><button type="button" class="sort-btn" data-sort="producto">Cosa <span class="sort-icon" aria-hidden="true"></span></button></th>
+                <th scope="col" data-col="categoria"><button type="button" class="sort-btn" data-sort="categoria">Tipo <span class="sort-icon" aria-hidden="true"></span></button></th>
+                <th scope="col" class="num" data-col="unidades"><button type="button" class="sort-btn" data-sort="unidades">Cuántas <span class="sort-icon" aria-hidden="true"></span></button></th>
+                <th scope="col" class="num" data-col="precioUnitario"><button type="button" class="sort-btn" data-sort="precioUnitario">Precio de una <span class="sort-icon" aria-hidden="true"></span></button></th>
+              </tr>
+            </thead>
+            <tbody data-tbody>
+              <tr><td colspan="4">Cargando ventas…</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row" colspan="2">En total</th>
+                <td class="num" data-foot="unidades">—</td>
+                <td class="num" aria-hidden="true"></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+        <noscript><p>Activa JavaScript para ver la tabla de ventas.</p></noscript>
+
+        <!-- Anuncia cambios a lectores de pantalla (filtro / orden) -->
+        <p class="visually-hidden" aria-live="polite" data-live></p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© <span data-year></span> Fiesta Montiel. Proyecto escolar.</p>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp (patrón común en sitios de negocios en LATAM) -->
+  <a class="whatsapp-float" href="#contacto" data-whatsapp-link aria-label="Escríbenos por WhatsApp">
+    <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true" focusable="false">
+      <path fill="currentColor" d="M16 3a13 13 0 0 0-11.2 19.6L3 29l6.6-1.7A13 13 0 1 0 16 3Zm0 23.7a10.7 10.7 0 0 1-5.5-1.5l-.4-.2-3.9 1 1-3.8-.2-.4A10.7 10.7 0 1 1 16 26.7Zm5.9-8c-.3-.2-1.9-1-2.2-1s-.5-.2-.7.2-.8 1-1 1.2-.4.2-.7.1a8.8 8.8 0 0 1-4.4-3.8c-.3-.6.3-.5 1-1.7.1-.2 0-.4 0-.5l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6a1.2 1.2 0 0 0-.9.4 3.7 3.7 0 0 0-1.1 2.7 6.4 6.4 0 0 0 1.3 3.4 14.7 14.7 0 0 0 5.7 5c2.1.9 2.9 1 4 .8a3.4 3.4 0 0 0 2.2-1.6 2.8 2.8 0 0 0 .2-1.6c0-.1-.3-.2-.6-.4Z"/>
+    </svg>
+  </a>
+</body>
+</html>

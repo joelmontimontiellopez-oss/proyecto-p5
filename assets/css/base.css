@@ -1,0 +1,135 @@
+/* =========================================================
+   BASE: reset moderno + estilos de elementos HTML + utilidades
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* el padding no agranda las cajas */
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* evita que el header fijo tape el título al saltar a #ventas */
+  scroll-padding-top: calc(var(--header-height) + var(--space-4));
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--ink);
+  color: var(--white);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400; /* Archivo Black ya es pesada */
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  text-transform: none; /* mayúsculas sostenidas cuestan más trabajo de leer */
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: var(--text-xl);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+a {
+  color: var(--color-primary);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* Foco visible SOLO con teclado (no al hacer clic con mouse) */
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ---------- Utilidades ---------- */
+
+.container {
+  width: min(100% - 2 * var(--space-4), var(--container-max));
+  margin-inline: auto;
+}
+
+/* Oculto a la vista pero leído por lectores de pantalla */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-2);
+  z-index: 100;
+  padding: var(--space-2) var(--space-4);
+  background: var(--white);
+  color: var(--red-3);
+  font-weight: 700;
+  border-radius: var(--radius-sm);
+  transform: translateY(-200%);
+  transition: transform var(--duration-fast);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* ---------- Accesibilidad: movimiento reducido ----------
+   Si la persona activó "reducir movimiento" en su sistema,
+   apagamos animaciones y transiciones. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important; /* sin esperas escalonadas */
+  }
+}

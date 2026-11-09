@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="120" cy="170" rx="74" ry="7" fill="#0d0708" opacity="0.14"/>
+  <!-- patas traseras -->
+  <path d="M100 116 L98 152 M140 116 L142 152" stroke="#6e0008" stroke-width="8"/>
+  <!-- patas delanteras -->
+  <path d="M82 116 L72 164 M158 116 L168 164" stroke="#0d0708" stroke-width="9"/>
+  <path d="M77 140 H163" stroke="#0d0708" stroke-width="6"/>
+  <!-- respaldo -->
+  <rect x="80" y="18" width="80" height="76" rx="16" fill="#e60012" stroke="#0d0708" stroke-width="5"/>
+  <rect x="94" y="32" width="52" height="9" rx="4.5" fill="#fff"/>
+  <rect x="94" y="49" width="52" height="9" rx="4.5" fill="#fff"/>
+  <rect x="94" y="66" width="52" height="9" rx="4.5" fill="#fff"/>
+  <!-- asiento -->
+  <path d="M64 94 H176 Q184 94 182 103 L175 119 H65 L58 103 Q56 94 64 94 Z" fill="#e60012" stroke="#0d0708" stroke-width="5"/>
+  <path d="M72 103 H168" stroke="#fff" stroke-width="4" opacity="0.55"/>
+</svg>

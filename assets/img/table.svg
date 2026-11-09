@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <ellipse cx="120" cy="172" rx="86" ry="6" fill="#0d0708" opacity="0.14"/>
+  <!-- mantel -->
+  <path d="M26 76 Q24 138 62 146 Q91 152 120 148 Q149 152 178 146 Q216 138 214 76 Z" fill="#e60012" stroke="#0d0708" stroke-width="5"/>
+  <path d="M60 96 Q62 130 70 142 M100 100 Q102 134 106 148 M140 100 Q138 134 134 148 M180 96 Q178 130 170 142" stroke="#fff" stroke-width="3.5" opacity="0.5"/>
+  <!-- cubierta -->
+  <ellipse cx="120" cy="76" rx="96" ry="28" fill="#fff" stroke="#0d0708" stroke-width="5"/>
+  <ellipse cx="120" cy="76" rx="68" ry="18" fill="none" stroke="#e60012" stroke-width="3" stroke-dasharray="2 9"/>
+  <!-- pastel -->
+  <ellipse cx="120" cy="82" rx="30" ry="7" fill="#0d0708" opacity="0.15"/>
+  <rect x="100" y="52" width="40" height="28" rx="4" fill="#fff" stroke="#0d0708" stroke-width="4"/>
+  <path d="M100 60 Q106 68 112 60 Q118 68 124 60 Q130 68 136 60 H140 V54 Q140 52 138 52 H102 Q100 52 100 54 Z" fill="#e60012" stroke="#0d0708" stroke-width="3"/>
+  <rect x="118" y="38" width="4" height="14" rx="1" fill="#0d0708"/>
+  <path d="M120 24 Q126 31 120 36 Q114 31 120 24 Z" fill="#e60012" stroke="#0d0708" stroke-width="2.5"/>
+</svg>

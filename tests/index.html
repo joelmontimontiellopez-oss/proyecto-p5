@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pruebas | Fiesta Montiel</title>
+  <style>
+    body { font-family: system-ui, sans-serif; max-width: 48rem; margin: 2rem auto; padding: 0 1rem; }
+    li { padding: 0.25rem 0; }
+    .ok { color: #166534; }
+    .fail { color: #b91c1c; font-weight: 700; }
+  </style>
+</head>
+<body>
+  <h1>Pruebas unitarias</h1>
+  <p id="resumen">Ejecutando…</p>
+  <ul id="resultados"></ul>
+
+  <script type="module">
+    import { calcularTotal, filtrarPorCategoria, ordenar, resumir } from '../assets/js/modules/ventas-utils.js';
+    import { construirEnlaceWhatsApp } from '../assets/js/modules/whatsapp.js';
+    import { VENTAS } from '../assets/js/data/ventas.js';
+
+    const resultados = [];
+    function prueba(nombre, fn) {
+      try { fn(); resultados.push({ nombre, ok: true }); }
+      catch (e) { resultados.push({ nombre, ok: false, error: e.message }); }
+    }
+    function igual(real, esperado) {
+      if (JSON.stringify(real) !== JSON.stringify(esperado)) {
+        throw new Error(`esperaba ${JSON.stringify(esperado)} pero obtuve ${JSON.stringify(real)}`);
+      }
+    }
+
+    // ---- Cálculos ----
+    prueba('calcularTotal multiplica unidades × precio', () => {
+      igual(calcularTotal({ unidades: 3, precioUnitario: 250 }), 750);
+    });
+
+    prueba('filtrar "todas" devuelve todos los productos', () => {
+      igual(filtrarPorCategoria(VENTAS, 'todas').length, VENTAS.length);
+    });
+
+    prueba('filtrar "inflables" devuelve solo inflables', () => {
+      const r = filtrarPorCategoria(VENTAS, 'inflables');
+      igual(r.every((x) => x.categoria === 'inflables'), true);
+      igual(r.length, 3);
+    });
+
+    prueba('ordenar por total descendente pone el mayor primero', () => {
+      const r = ordenar(VENTAS, 'total', 'desc');
+      igual(calcularTotal(r[0]) >= calcularTotal(r[1]), true);
+    });
+
+    prueba('ordenar NO modifica el arreglo original', () => {
+      const antes = VENTAS.map((x) => x.id);
+      ordenar(VENTAS, 'producto', 'asc');
+      igual(VENTAS.map((x) => x.id), antes);
+    });
+
+    prueba('resumir suma ventas y unidades', () => {
+      const r = resumir([
+        { producto: 'A', unidades: 2, precioUnitario: 100 },
+        { producto: 'B', unidades: 1, precioUnitario: 500 },
+      ]);
+      igual(r.totalVentas, 700);
+      igual(r.totalUnidades, 3);
+      igual(r.top.producto, 'B');
+    });
+
+    prueba('resumir con lista vacía no truena', () => {
+      igual(resumir([]), { totalVentas: 0, totalUnidades: 0, top: null });
+    });
+
+    // ---- WhatsApp ----
+    prueba('enlace WhatsApp limpia +, espacios y guiones', () => {
+      igual(construirEnlaceWhatsApp('+52 55-1234-5678'), 'https://wa.me/525512345678');
+    });
+
+    prueba('enlace WhatsApp codifica el mensaje (espacios, acentos, ¿?)', () => {
+      igual(construirEnlaceWhatsApp('525512345678', '¿Hola, sí?'),
+        'https://wa.me/525512345678?text=%C2%BFHola%2C%20s%C3%AD%3F');
+    });
+
+    // ---- Mostrar resultados ----
+    const lista = document.getElementById('resultados');
+    for (const r of resultados) {
+      const li = document.createElement('li');
+      li.className = r.ok ? 'ok' : 'fail';
+      li.textContent = `${r.ok ? '✅' : '❌'} ${r.nombre}${r.ok ? '' : ' → ' + r.error}`;
+      lista.append(li);
+    }
+    const fallidas = resultados.filter((r) => !r.ok).length;
+    const resumen = document.getElementById('resumen');
+    resumen.textContent = fallidas === 0
+      ? `TODAS PASARON: ${resultados.length}/${resultados.length}`
+      : `FALLARON ${fallidas} de ${resultados.length}`;
+    resumen.className = fallidas === 0 ? 'ok' : 'fail';
+  </script>
+</body>
+</html>
