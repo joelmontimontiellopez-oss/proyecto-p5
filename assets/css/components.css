@@ -882,3 +882,46 @@ th[aria-sort="descending"] .sort-icon { transform: rotate(180deg); }
   transition: transform var(--duration-base) var(--ease-bounce);
 }
 .card:hover .card__art img { transform: scale(1.08) rotate(-2deg); }
+
+/* ---------- Simulador de costos ---------- */
+.quote {
+  display: grid;
+  gap: var(--space-6);
+  align-items: start;
+}
+@media (min-width: 48em) {
+  .quote { grid-template-columns: 1fr 1fr; }
+}
+
+.quote__form,
+.quote__result {
+  padding: var(--space-6);
+  color: var(--ink);
+  background: var(--white);
+  border: var(--border);
+  border-radius: var(--radius-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.quote__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  font-size: var(--text-lg);
+  font-weight: 800;
+}
+.quote__row small { display: block; font-size: var(--text-sm); font-weight: 600; color: var(--color-text-muted); }
+.quote__input { width: 6.5rem; text-align: right; font-size: var(--text-lg); }
+
+.quote__lines { list-style: none; margin: 0 0 var(--space-4); padding: 0; min-height: 4rem; font-weight: 600; }
+.quote__lines li { display: flex; justify-content: space-between; gap: var(--space-4); padding: var(--space-2) 0; border-bottom: 1px solid #e6cfd1; font-variant-numeric: tabular-nums; }
+.quote__total { display: flex; justify-content: space-between; align-items: baseline; font-size: var(--text-lg); font-weight: 800; }
+.quote__total strong { font-family: var(--font-display); font-size: var(--text-xl); color: var(--red-2); font-variant-numeric: tabular-nums; }
+
+.quote__ask { margin-top: var(--space-8); }
+.quote__ask[hidden], .quote__reply[hidden] { display: none; }
+.quote__question { margin-bottom: var(--space-4); font-family: var(--font-display); font-size: var(--text-lg); }
+.quote__buttons { display: flex; flex-wrap: wrap; gap: var(--space-4); }
+.quote__reply { margin-top: var(--space-4); font-size: var(--text-lg); font-weight: 800; }

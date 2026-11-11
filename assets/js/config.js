@@ -6,6 +6,13 @@ export const CONFIG = Object.freeze({
   negocio: 'fiesta montiel',
   locale: 'es-MX',
   moneda: 'MXN',
+  // Precios del simulador (pesos MXN enteros, por evento).
+  precios: {
+    sillas: 25,
+    mesas: 80,
+    brincolines: 650,
+    entrega: 150, // se cobra una vez si pides algo
+  },
   whatsapp: {
     // Formato internacional SIN "+", espacios ni guiones.
     // México: 52 + 10 dígitos. ⚠️ Este número es de EJEMPLO: cámbialo por el tuyo.

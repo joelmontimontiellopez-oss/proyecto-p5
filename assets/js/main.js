@@ -6,11 +6,13 @@ import { initNav } from './modules/nav.js';
 import { initReveal } from './modules/reveal.js';
 import { initSalesTable } from './modules/sales-table.js';
 import { initWhatsApp } from './modules/whatsapp.js';
+import { initQuote } from './modules/quote.js';
 import { initSpotlight } from './modules/spotlight.js';
 
 initNav();
 initSalesTable(document.querySelector('[data-sales]'));
 initWhatsApp(CONFIG.whatsapp);
+initQuote(document.querySelector('[data-quote]'), CONFIG);
 initReveal();
 initSpotlight();
 

@@ -30,6 +30,25 @@ export function ordenar(items, campo, direccion = 'asc') {
   });
 }
 
+/** Cotización: cantidades × precios + entrega (solo si hay algo). Devuelve líneas y total. */
+export function calcularCotizacion(cantidades, precios) {
+  const nombres = { sillas: 'Sillas', mesas: 'Mesas', brincolines: 'Brincolines' };
+  const lineas = [];
+  let total = 0;
+  for (const clave of Object.keys(nombres)) {
+    const n = Math.max(0, Math.floor(Number(cantidades[clave]) || 0));
+    if (n === 0) continue;
+    const subtotal = n * precios[clave];
+    lineas.push({ clave, nombre: nombres[clave], cantidad: n, subtotal });
+    total += subtotal;
+  }
+  if (lineas.length > 0) {
+    lineas.push({ clave: 'entrega', nombre: 'Entrega', cantidad: 1, subtotal: precios.entrega });
+    total += precios.entrega;
+  }
+  return { lineas, total };
+}
+
 export function resumir(items) {
   let totalVentas = 0;
   let totalUnidades = 0;

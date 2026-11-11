@@ -17,7 +17,7 @@
   <ul id="resultados"></ul>
 
   <script type="module">
-    import { calcularTotal, filtrarPorCategoria, ordenar, resumir } from '../assets/js/modules/ventas-utils.js';
+    import { calcularTotal, calcularCotizacion, filtrarPorCategoria, ordenar, resumir } from '../assets/js/modules/ventas-utils.js';
     import { construirEnlaceWhatsApp } from '../assets/js/modules/whatsapp.js';
     import { VENTAS } from '../assets/js/data/ventas.js';
 
@@ -33,6 +33,12 @@
     }
 
     // ---- Cálculos ----
+    prueba('calcularCotizacion suma cantidades y entrega; vacío = $0', () => {
+      const precios = { sillas: 25, mesas: 80, brincolines: 650, entrega: 150 };
+      igual(calcularCotizacion({ sillas: 10, mesas: 2, brincolines: 1 }, precios).total, 250 + 160 + 650 + 150);
+      igual(calcularCotizacion({ sillas: 0, mesas: '', brincolines: -3 }, precios).total, 0);
+    });
+
     prueba('calcularTotal multiplica unidades × precio', () => {
       igual(calcularTotal({ unidades: 3, precioUnitario: 250 }), 750);
     });

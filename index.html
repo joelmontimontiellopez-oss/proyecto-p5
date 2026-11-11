@@ -63,6 +63,7 @@
           <li><a class="nav__link" href="#como">Cómo pedir</a></li>
           <li><a class="nav__link" href="#contacto">Contacto</a></li>
           <li><a class="nav__link" href="#ventas">Ventas</a></li>
+          <li><a class="nav__link" href="#cotizador">Cotiza</a></li>
         </ul>
       </nav>
     </div>
@@ -89,9 +90,9 @@
           </div>
         </div>
         <div class="hero__visual">
-          <p class="sticker" aria-label="Sillas desde 250 pesos">
+          <p class="sticker" aria-label="Sillas desde 25 pesos">
             <span class="sticker__small">Sillas desde</span>
-            <span class="sticker__price">$250</span>
+            <span class="sticker__price">$25</span>
           </p>
           <div class="hero__art" aria-hidden="true">
             <img class="hero__art-castle" src="assets/img/castle.svg" alt="" width="240" height="180">
@@ -122,7 +123,7 @@
             <article class="card card--sillas">
               <div class="card__art" aria-hidden="true"><img src="assets/img/chair.svg" alt="" width="240" height="180" loading="lazy"></div>
               <h3 class="card__title">Sillas</h3>
-              <p class="card__price"><span>desde</span> $250</p>
+              <p class="card__price"><span>desde</span> $25</p>
               <p>Para sentarse. Hay para grandes y para niños.</p>
               <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por sillas</a>
             </article>
@@ -131,7 +132,7 @@
             <article class="card card--mesas">
               <div class="card__art" aria-hidden="true"><img src="assets/img/table.svg" alt="" width="240" height="180" loading="lazy"></div>
               <h3 class="card__title">Mesas</h3>
-              <p class="card__price"><span>desde</span> $850</p>
+              <p class="card__price"><span>desde</span> $80</p>
               <p>Para comer y jugar. Hay redondas y largas.</p>
               <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por mesas</a>
             </article>
@@ -140,7 +141,7 @@
             <article class="card card--inflables">
               <div class="card__art" aria-hidden="true"><img src="assets/img/castle.svg" alt="" width="240" height="180" loading="lazy"></div>
               <h3 class="card__title">Brincolines</h3>
-              <p class="card__price"><span>desde</span> $9,800</p>
+              <p class="card__price"><span>desde</span> $650</p>
               <p>Para saltar. Hay castillos y toboganes.</p>
               <a class="btn btn--dark" href="#contacto" data-whatsapp-link>Preguntar por brincolines</a>
             </article>
@@ -237,6 +238,47 @@
 
         <!-- Anuncia cambios a lectores de pantalla (filtro / orden) -->
         <p class="visually-hidden" aria-live="polite" data-live></p>
+      </div>
+    </section>
+
+    <!-- ===== SIMULADOR DE COSTOS ===== -->
+    <section id="cotizador" class="section" aria-labelledby="cotizador-titulo" data-quote>
+      <div class="container">
+        <header class="section__header">
+          <h2 id="cotizador-titulo">Calcula tu fiesta</h2>
+          <p class="section__lead">Pon cuántas cosas quieres y mira cuánto sale. <small>(Precios de ejemplo)</small></p>
+        </header>
+
+        <div class="quote">
+          <form class="quote__form" data-quote-form novalidate>
+            <label class="quote__row" for="q-sillas">
+              <span>Sillas <small data-price="sillas"></small></span>
+              <input class="select quote__input" id="q-sillas" name="sillas" type="number" inputmode="numeric" min="0" max="500" value="0">
+            </label>
+            <label class="quote__row" for="q-mesas">
+              <span>Mesas <small data-price="mesas"></small></span>
+              <input class="select quote__input" id="q-mesas" name="mesas" type="number" inputmode="numeric" min="0" max="100" value="0">
+            </label>
+            <label class="quote__row" for="q-brincolines">
+              <span>Brincolines <small data-price="brincolines"></small></span>
+              <input class="select quote__input" id="q-brincolines" name="brincolines" type="number" inputmode="numeric" min="0" max="10" value="0">
+            </label>
+          </form>
+
+          <div class="quote__result" aria-live="polite">
+            <ul class="quote__lines" data-quote-lines></ul>
+            <p class="quote__total"><span>Total</span> <strong data-quote-total>$0</strong></p>
+          </div>
+        </div>
+
+        <div class="quote__ask" data-quote-ask hidden>
+          <p class="quote__question">¡Uff! ¿Te parece bien? ¿Cotizamos con este número?</p>
+          <div class="quote__buttons">
+            <a class="btn btn--yellow btn--big" data-quote-yes href="#contacto">Sí, cotizar</a>
+            <button class="btn btn--ghost btn--big" type="button" data-quote-no>No</button>
+          </div>
+        </div>
+        <p class="quote__reply" data-quote-reply role="status" hidden></p>
       </div>
     </section>
   </main>
