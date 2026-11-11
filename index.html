@@ -62,7 +62,6 @@
           <li><a class="nav__link" href="#productos">Precios</a></li>
           <li><a class="nav__link" href="#como">Cómo pedir</a></li>
           <li><a class="nav__link" href="#contacto">Contacto</a></li>
-          <li><a class="nav__link" href="#ventas">Ventas</a></li>
           <li><a class="nav__link" href="#cotizador">Cotiza</a></li>
         </ul>
       </nav>
@@ -177,67 +176,6 @@
           <div class="qr__code" data-whatsapp-qr role="img" aria-label="Código QR para abrir un chat de WhatsApp con Fiesta Montiel"></div>
           <figcaption class="qr__caption">Código QR de WhatsApp</figcaption>
         </figure>
-      </div>
-    </section>
-
-    <!-- ===== TABLA DE VENTAS (primera tabla) ===== -->
-    <section id="ventas" class="section" aria-labelledby="ventas-titulo" data-sales>
-      <div class="container">
-        <header class="section__header">
-          <h2 id="ventas-titulo">Lo que más se vende</h2>
-          <p class="section__lead">Mira qué cosas se llevan más. <small>(Datos de ejemplo)</small></p>
-        </header>
-
-        <!-- Indicadores calculados a partir de la misma tabla -->
-        <dl class="stats">
-          <div class="stat">
-            <dt>Cuántas cosas</dt>
-            <dd data-stat="unidades">—</dd>
-          </div>
-          <div class="stat">
-            <dt>La más vendida</dt>
-            <dd data-stat="top">—</dd>
-          </div>
-        </dl>
-
-        <div class="table-toolbar">
-          <label for="filtro-categoria">Ver</label>
-          <select id="filtro-categoria" class="select" data-filter>
-            <option value="todas">Todo</option>
-            <option value="sillas">Sillas</option>
-            <option value="mesas">Mesas</option>
-            <option value="inflables">Brincolines</option>
-          </select>
-        </div>
-
-        <!-- role=region + tabindex permite desplazar la tabla con teclado en pantallas chicas -->
-        <div class="table-wrap" role="region" aria-labelledby="tabla-ventas-caption" tabindex="0">
-          <table class="table">
-            <caption id="tabla-ventas-caption">Toca un título para ordenar la tabla.</caption>
-            <thead>
-              <tr>
-                <th scope="col" data-col="producto"><button type="button" class="sort-btn" data-sort="producto">Cosa <span class="sort-icon" aria-hidden="true"></span></button></th>
-                <th scope="col" data-col="categoria"><button type="button" class="sort-btn" data-sort="categoria">Tipo <span class="sort-icon" aria-hidden="true"></span></button></th>
-                <th scope="col" class="num" data-col="unidades"><button type="button" class="sort-btn" data-sort="unidades">Cuántas <span class="sort-icon" aria-hidden="true"></span></button></th>
-                <th scope="col" class="num" data-col="precioUnitario"><button type="button" class="sort-btn" data-sort="precioUnitario">Precio de una <span class="sort-icon" aria-hidden="true"></span></button></th>
-              </tr>
-            </thead>
-            <tbody data-tbody>
-              <tr><td colspan="4">Cargando ventas…</td></tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <th scope="row" colspan="2">En total</th>
-                <td class="num" data-foot="unidades">—</td>
-                <td class="num" aria-hidden="true"></td>
-              </tr>
-            </tfoot>
-          </table>
-        </div>
-        <noscript><p>Activa JavaScript para ver la tabla de ventas.</p></noscript>
-
-        <!-- Anuncia cambios a lectores de pantalla (filtro / orden) -->
-        <p class="visually-hidden" aria-live="polite" data-live></p>
       </div>
     </section>
 
