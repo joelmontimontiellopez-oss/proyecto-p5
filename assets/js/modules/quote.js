@@ -16,10 +16,11 @@ export function initQuote(root, config) {
   const no = root.querySelector('[data-quote-no]');
   const reply = root.querySelector('[data-quote-reply]');
 
-  const dinero = new Intl.NumberFormat(locale, { style: 'currency', currency: moneda, maximumFractionDigits: 0 });
+  const formato = new Intl.NumberFormat(locale, { style: 'currency', currency: moneda, maximumFractionDigits: 0 });
+  const dinero = { format: (n) => `${formato.format(n)} ${moneda}` }; // ej. $1,800 MXN
 
   root.querySelectorAll('[data-price]').forEach((el) => {
-    el.textContent = `${dinero.format(precios[el.dataset.price])} c/u`;
+    el.textContent = `${dinero.format(precios[el.dataset.price])} por día`;
   });
 
   function leer() {
@@ -32,7 +33,7 @@ export function initQuote(root, config) {
     lines.replaceChildren(...lineas.map((l) => {
       const li = document.createElement('li');
       const nombre = document.createElement('span');
-      nombre.textContent = l.clave === 'entrega' ? l.nombre : `${l.cantidad} ${l.nombre.toLowerCase()}`;
+      nombre.textContent = `${l.cantidad} ${l.nombre.toLowerCase()}`;
       const monto = document.createElement('span');
       monto.textContent = dinero.format(l.subtotal);
       li.append(nombre, monto);
@@ -42,8 +43,8 @@ export function initQuote(root, config) {
     ask.hidden = total === 0;
     reply.hidden = true;
 
-    const resumen = lineas.filter((l) => l.clave !== 'entrega').map((l) => `${l.cantidad} ${l.nombre.toLowerCase()}`).join(', ');
-    const mensaje = `Hola Fiesta Montiel, me gustaría cotizar: ${resumen}. Total estimado (con entrega): ${dinero.format(total)}. ¿Me confirman disponibilidad?`;
+    const resumen = lineas.map((l) => `${l.cantidad} ${l.nombre.toLowerCase()}`).join(', ');
+    const mensaje = `Hola Fiesta Montiel, me gustaría cotizar la renta de: ${resumen}. Total estimado de renta: ${dinero.format(total)}. ¿Me confirman disponibilidad?`;
     yes.href = construirEnlaceWhatsApp(whatsapp.numero, mensaje);
     yes.target = '_blank';
     yes.rel = 'noopener noreferrer';

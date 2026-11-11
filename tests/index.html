@@ -33,9 +33,9 @@
     }
 
     // ---- Cálculos ----
-    prueba('calcularCotizacion suma cantidades y entrega; vacío = $0', () => {
-      const precios = { sillas: 25, mesas: 80, brincolines: 650, entrega: 150 };
-      igual(calcularCotizacion({ sillas: 10, mesas: 2, brincolines: 1 }, precios).total, 250 + 160 + 650 + 150);
+    prueba('calcularCotizacion suma cantidades; vacío = $0', () => {
+      const precios = { sillas: 25, mesas: 80, brincolines: 650 };
+      igual(calcularCotizacion({ sillas: 10, mesas: 2, brincolines: 1 }, precios).total, 250 + 160 + 650);
       igual(calcularCotizacion({ sillas: 0, mesas: '', brincolines: -3 }, precios).total, 0);
     });
 
